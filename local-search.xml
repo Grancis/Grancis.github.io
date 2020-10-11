@@ -4,12 +4,47 @@
   
   
   <entry>
+    <title>web开发-基础知识1</title>
+    <link href="/posts/post_web-dev_primary1/"/>
+    <url>/posts/post_web-dev_primary1/</url>
+    
+    <content type="html"><![CDATA[<h2 id="web开发基础知识"><a href="#web开发基础知识" class="headerlink" title="web开发基础知识"></a>web开发基础知识</h2><h3 id="全栈开发简介"><a href="#全栈开发简介" class="headerlink" title="全栈开发简介"></a>全栈开发简介</h3><p><img src="/img/post/web-dev_primary1-1.png"></p><p>web开发可以分为前端和后端两大部分：前端指浏览器用户交互页面，后端包括远程提供数据接口、服务接口的服务器程序以及数据库。</p><p>后端程序一般负责数据处理、业务流处理，前端一般负责将数据渲染到页面上，并响应用户操作。</p><p>整体的流程可以根据上图概括为如下：</p><ul><li>前端代码通过浏览器引擎渲染成可交互的页面</li><li>用户通过浏览器在页面上进行操作，前端代码根据用户的操作等（浏览器事件）更新页面或向后端发起请求，请求数据或发起服务。</li><li>后端服务器收到前端的请求后，触发相应的功能模块，完成相应的业务（计算、数据库增删改查等），最后向前端返回请求的结果（可能是执行的结果或数据查询的结果等）。</li></ul><blockquote><p>前端向后端发起请求、后端待命接收请求并在请求完成前返回请求结果给发起方，这都是建立在http协议上的。</p></blockquote><h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写, 是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p><p>就像人们给远方的人交流一样，我们需要约定一个方式来向远方传递信息以及接受来自远方的信息，信件（邮寄）就是其中一种方式。计算机程序在交流时也需要提前约定好一种方式，http就是其中的一种方式。http基于TCP/IP协议，说应它在底层上依赖ip地址、端口等信息来定位，也需要向TCP一样三次握手确认对方身份，但在使用http协议时并不需要关心这些，因为它给我们提供了更方便的通信方式。</p><p>基于http通信的程序有两个角色，一个时客户端client，一个时服务器server。client总是作为通信的发起方，即发起一个request。server则常驻与一个已知的、固定的ip:port(地址)，它监听着某个端口的，等待client向那个端口发起请求。</p><p>client对远端server的地址是已知的，server只有接收到client的请求时才知道client的地址。client的一次请求，到server给client这次请求的响应就是一次http通信，通信结束即断开连接，并且不会保存通信的状态。</p><h4 id="url"><a href="#url" class="headerlink" title="url"></a>url</h4><p>url即我们常说的网址，用来表示Internet地址的一种方式，这种方式人看上去比较易区分记忆，实际上它会被dns服务器解析成TCP/IP协议用的ip:port的形式。</p><p>在http中，默认使用的端口是<code>80</code>,即在浏览器中访问 <code>http://www.example.com</code> 访问的是<code>www.example.com</code>对应的ip下的80端口。如果是 <code>https</code> 则默认是443端口。</p><p>域名（网址）是需要申请注册的，它和<code>ip</code>地址一样是一种互联网资源。当我们没有注册域名时，直接使用<code>ip:port</code>的形式作为url也是可以的。</p><p>开发调试时时长会用到本地ip，<code>http://localhost:8080</code> or <code>http://127.0.0.1:8080</code> 都表示访问本地的<code>8080</code>端口。</p><h4 id="http-request"><a href="#http-request" class="headerlink" title="http request"></a>http request</h4><p><img src="/img/post/web-dev_primary1-2.png"></p><p>就像写信需要固定格式一样，因为代码在读信，http发起请求更需要一个固定的格式来表明各种信息。</p><p>如图所示，request包含三部分：</p><ul><li>请求行：method、url 以及协议版本</li><li>请求头部：以 <code>key:value</code> 形式表示的更多信息</li><li>请求数据：data发送给远端服务器的信息</li></ul><p>实际上，在开发过程中只需要按规定将请求的method、url、data等信息传入模块或函数，自能自动封装成一个http request并发起请求。</p><h4 id="http-response"><a href="#http-response" class="headerlink" title="http response"></a>http response</h4><p>和request一样，回信 response 也需要固定的格式。</p><p>主要包含 <code>header</code> 和 <code>body</code> 两部分，<code>header</code>也是<code>key:value</code>形式的各种信息，<code>body</code>则是返回的信息主体。下图是某个请求的<code>header</code></p><p><img src="/img/post/web-dev_primary1-3.png"></p><p>我们一般关心<code>header</code>中的 <code>status</code>，它是一个代码，表示本次请求的状态。<code>body</code>中内容则是我们要使用的信息。</p><h4 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h4><p>对不同类型的请求，http规定了请求方法，常用的有 <code>GET</code>, <code>POST</code>, <code>DELETE</code>, <code>PUT</code>，<code>HEAD </code>，<code>OPTIONS</code>. </p><ul><li><code>GET</code>: 一般在请求一个页面，或者不带参数的请求时使用。带参数时，参数会在url中显示出来</li><li><code>POST</code>：带参请求，一般使用json格式传递参数</li><li><code>DELETE</code>: 请求服务器删除指定资源</li><li><code>PUT</code>: 请求服务器更新指定资源</li><li><code>HEAD </code>: 与<code>GET</code>类似，但只获取<code>header</code></li><li><code>OPTIONS</code>: 允许客户端查看服务器的状态（预请求），一些模块中会集成这个功能。</li></ul><h4 id="状态码status"><a href="#状态码status" class="headerlink" title="状态码status"></a>状态码<code>status</code></h4><p>http状态码用来反应请求的状态。</p><ul><li>1xx：指示信息–表示请求已接收，继续处理</li><li>2xx：成功–表示请求已被成功接收、理解、接受</li><li>3xx：重定向–要完成请求必须进行更进一步的操作</li><li>4xx：客户端错误–请求有语法错误或请求无法实现</li><li>5xx：服务器端错误–服务器未能实现合法的请求</li></ul><p>常见的状态码和意义：</p><pre><code class="hljs JavaScript"><span class="hljs-number">200</span> OK                        <span class="hljs-comment">//客户端请求成功</span><span class="hljs-number">400</span> Bad Request               <span class="hljs-comment">//客户端请求有语法错误，不能被服务器所理解</span><span class="hljs-number">401</span> Unauthorized              <span class="hljs-comment">//请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用 </span><span class="hljs-number">403</span> Forbidden                 <span class="hljs-comment">//服务器收到请求，但是拒绝提供服务</span><span class="hljs-number">404</span> Not Found                 <span class="hljs-comment">//请求资源不存在，eg：输入了错误的URL</span><span class="hljs-number">500</span> Internal Server <span class="hljs-built_in">Error</span>     <span class="hljs-comment">//服务器发生不可预期的错误</span><span class="hljs-number">503</span> Server Unavailable        <span class="hljs-comment">//服务器当前不能处理客户端的请求，一段时间后可能恢复正常</span></code></pre><h3 id="前端引荐"><a href="#前端引荐" class="headerlink" title="前端引荐"></a>前端引荐</h3><p>在过去，前端能做的工作很少，大概就是用 <code>html</code>写网页的主题内容，再用<code>css</code>优化一下排版，而这两个脚本语言写出来的东西都是静态，没办法动态更新，每一次请求都需要刷新整个页面。所以那时候要局部更新页面需要借助“模板引擎”，在后端语言的帮助下局部更新页面。如果时动画，就只能用现在大家都痛恶的flash。</p><p>一个大佬叫Google，重新为浏览器写了一个<code>JavaScript</code>引擎后改变了这种情况。<code>JavaScript</code>丰富的功能使得前端代码有能力方便的对页面进行动态更新。此后，<code>JavaScript</code>就成为了前端逻辑代码的担当。</p><p>所以，<code>html</code>, <code>css</code>, <code>JavaScript</code> 就成了新的网址前端开发三剑客。</p><p>之后，又有大佬不满 <code>JavaScript</code> 不能模块化，以Google开源的JavaScript引擎为基础打造了<code>node.js</code>，语法还是<code>js</code>的语法，新增了模块管理特性，并推出<code>npm</code>包管理工具，这一举措让前端开发者可能能够方便的封装复用代码，发布到<code>npm</code>后能够让其他开发者也能够方便的引入模块。</p><p>模块化有了统一的标准后，前端开发者就可以共同开发构建更多、更方便的模块。前端网页开发从原来的在一个文件里写脚本，通过url引用第三方模块的方式变成模块化开发的方式。各路大神造出了很多好用的前端框架，如：<code>React</code>、<code>Vue</code>等。</p><h3 id="后端引荐"><a href="#后端引荐" class="headerlink" title="后端引荐"></a>后端引荐</h3><p>web后端开发用很多语言都可以实现，比如老大哥<code>Java</code>,比如目前非常火爆的<code>Python</code>。无论使用哪一种语言开发都已经有成熟的web后端框架可以直接使用，<code>Java</code>用的是<code>spring-boot</code>, <code>Python</code> 这边有集成所有功能保姆级别的<code>Django</code>，也有插件丰富的轻量级的<code>flask</code>。这些框架可以帮助开发者快速构建http容器，往往只需要一行代码就可以启动一个http服务器。开发者只需要按照模块化的思路开发好各个功能模块，再按照框架配置好路由（url路径对应的功能）基本上就可以实现一个web后端服务器。</p><p>后端还有一个重要的功能就是读写数据库，常用的数据库都会有封装好的读写模块，开发者只需要调用模块就能方便的读写数据库，并获得多线程并发连接池等高级功能。这部分一般称作<code>ORM</code>（Object Relational Mapping）模块，即对象关系映射。这类模块可以将数据表结构直接映射到对象上，操作数据表就像操作一个对象一样方便。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>-web开发 -基础教程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>基础教程</tag>
+      
+      <tag>http</tag>
+      
+      <tag>web</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>读《月亮与六便士》</title>
     <link href="/posts/post_read_ylylbs/"/>
     <url>/posts/post_read_ylylbs/</url>
     
     <content type="html"><![CDATA[<h3 id="故事概述"><a href="#故事概述" class="headerlink" title="故事概述"></a>故事概述</h3><p>故事的主人公叫斯特里·克兰德，他原本是一位家庭美满、事业有成的证券经纪人。按照常人的思维，他已经处于人生巅峰，只需要平平稳稳的经营好现有的生活就是完美的一生了。然而他抛弃了世人都认可的、令人羡慕的生活，他独自一人、远走他乡从伦敦去到巴黎画画。</p><p>主人公去到巴黎的他没有再找一份自己擅长的证券相关的工作，而是以画画谋生。不出所料，他变得穷困潦倒，在巴黎吃尽了苦头。但所谓的“吃尽苦头”都是他人的看法，他在巴黎的朋友看到他穷困的样子接济了他，然而他却没有对朋友表现出一丁点感激之情，反而是冷眼相待。主人公变成了一个残忍冷酷的人，对世俗的一切表现得冷嘲热讽、傲慢不屑，唯独对艺术表现出一种本能的热情和无法抗拒的追求。</p><p>最终，主人公身边的人厌倦了他这个疯子，他更是厌倦了世俗社会，一个人去到南太平洋的一个岛屿上，与当地的土著结婚生子，过着与当代人类文明隔绝的生活。主人公最后在家里的四面墙壁上创作出了不朽之作，但却在得知自己身患绝症之后，叮嘱土著妻子一把火将壁画烧去，就这样一件杰作化为乌有。</p><h3 id="月亮与六便士"><a href="#月亮与六便士" class="headerlink" title="月亮与六便士"></a>月亮与六便士</h3><p>整本书并没有提到月亮与六便士，而是用主人公的经历诠释了这两件物品。皎洁的月亮高高在上，对主人公来说是他执着追求的艺术创作；而世人所奉承的功名、利益、钱财对于主人公来说只是地上的六便士，不值一提。理想在天上，遥不可及；世俗的利益在地上，触手可及，而主人公却毅然决定的选择追求天上的理想。</p><p>故事给我们描述了一个几乎极端的人物形象，为了追求自己的理想，不但抛弃功名利益还断绝了与世界的联系。这样一个极端的人在世俗社会看来是个疯子，但这是个为理想疯狂的疯子，他告诉我们如何对待追求自己的理想。</p><p>当我们尝试追求一个遥远的目标，眼前总是会有更简单易得的利益，放弃既得利益走向远方需要勇气，也必须有这样的勇气才有可能成就更大的梦想，因为这是追寻梦想的开始，就像主人公离开伦敦去到巴黎一样。</p><p>放弃利益去追求一个遥远的目标，在大多数旁人看来是愚蠢的。因此在追寻梦想的路上少不了人们的嘲笑。主人公的身边的人嘲讽他，他不但不在乎更是有一种世人愚昧的傲慢，最终选择与世隔绝。生活在现代的我们不该与世隔绝，但主人公那种无视他们嘲笑，以自己的梦想的态度是我们在实现理想的路上必不可少的。说到底，就是对目标的执着，有一份像主人公对艺术一样的执着，就能够坚持走下去，就能够不受他人影响地走下去。</p>]]></content>
     
+    
+    <categories>
+      
+      <category>-读书分享</category>
+      
+    </categories>
     
     
     <tags>
@@ -30,10 +65,18 @@
     <content type="html"><![CDATA[<h2 id="Cross-Origin-Resource-Sharing-CORS"><a href="#Cross-Origin-Resource-Sharing-CORS" class="headerlink" title="Cross Origin Resource Sharing (CORS)"></a>Cross Origin Resource Sharing (CORS)</h2><h3 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h3><p>跨域是浏览器的一种安全机制。为了确保页面从api获取的信息安全可信，浏览器要求前端的请求的api域名与站点在同一域名下。</p><p>例如，本网页挂载在 <code>www.a.com</code> 上，网页需要请求 <code>www.b.com</code> 上的<code>api</code>，这个过程就是跨域资源共享，即跨域。实际上，请求的资源与网页的ip相同而端口不同时也是跨域行为。</p><p>发生跨域事件时，默认情况下，浏览器会阻止该资源请求。在前后端分离的项目中，前端项目在本地运行，后端api在云服务器上，调用后端api时便会发生跨域问题。可以分别从前端和后端两个方面解决这个问题。</p><h3 id="前端解决跨域问题"><a href="#前端解决跨域问题" class="headerlink" title="前端解决跨域问题"></a>前端解决跨域问题</h3><p>在<code>node.js</code>生态中进行前端开发时，框架往往会提供一个开发环境用于实时调试。这个开发环境实际上就是一个http服务器，它的功能功能就是对用户的代码进行热更新，实时打包后部署在本地的某个端口上，用户在浏览器中访问 <code>http://localhost:8080</code> 这样的地址就能实时预览到开发的页面效果。</p><p>于是，要在前端解决跨域问题便可以从框架为我们提供的http服务器入口，只需要在框架中配置对后端<code>api</code>的代理访问，就可以保证前端页面和<code>api</code>处于同一源，即框架提供的http服务器。</p><p><img src="/img/post/%E8%B7%A8%E5%9F%9F%E4%BB%A3%E7%90%86%E8%AF%B4%E6%98%8E-1.png"></p><p>使用 <code>vue-cli 2.x</code> 时，需要在 <code>/config/index.js/</code> 中增加<code>proxyTable</code>配置</p><pre><code class="hljs JavaScript"><span class="hljs-built_in">module</span>.exports = &#123;  <span class="hljs-comment">//...</span>  dev: &#123;    <span class="hljs-comment">//....</span>    proxyTable: &#123;      <span class="hljs-string">&#x27;/api&#x27;</span>: &#123;        target:<span class="hljs-string">&#x27;http://www.example.com&#x27;</span>, <span class="hljs-comment">//这里就是后端api的url地址</span>        changeOrigin: <span class="hljs-literal">true</span>,        withCredentials:<span class="hljs-literal">true</span>,        pathRewrite: &#123;          <span class="hljs-string">&#x27;^/api&#x27;</span>: <span class="hljs-string">&#x27;&#x27;</span>        &#125;      &#125;,    &#125;,    <span class="hljs-comment">//....</span>  &#125;&#125;</code></pre><p>使用 <code>vue-cli 3.x</code> 时, 对应的配置在根目录的 <code>vue.config.js</code> 中(没有此文件新建一个)：</p><pre><code class="hljs JavaScript"><span class="hljs-built_in">module</span>.exports = &#123;  <span class="hljs-comment">//...</span>  devServer: &#123;    <span class="hljs-comment">//....</span>    proxy: &#123;      <span class="hljs-string">&#x27;/api&#x27;</span>: &#123;        target:<span class="hljs-string">&#x27;http://www.example.com&#x27;</span>, <span class="hljs-comment">//这里就是后端api的url地址</span>        changeOrigin: <span class="hljs-literal">true</span>,        withCredentials:<span class="hljs-literal">true</span>,        pathRewrite: &#123;          <span class="hljs-string">&#x27;^/api&#x27;</span>: <span class="hljs-string">&#x27;&#x27;</span>        &#125;      &#125;,    &#125;,    <span class="hljs-comment">//....</span>  &#125;&#125;</code></pre><p>实际上<code>vue-cli 2.x</code>使用的是<code>webpack</code>通用的配置方式，<code>vue-cli 3.x</code>是对webpack的再封装，以<code>vue-cli</code>自己的方式进行配置，大同小异。</p><p>配置完成后需要重启调试服务器。</p><pre><code class="hljs bash"><span class="hljs-comment"># vue-cli 2.x</span>npm run dev</code></pre><p>增加此配置后，原来访问的<code>api</code>地址则从 <code>http://www.example.com/api</code> 变更为 <code>/api</code>。 框架会匹配<code>/api</code>并代替浏览器完成资源请求，再将结果通过 <code>/api</code>的请求（浏览器发起的请求）返回到页面。这个过程就是代理。更多的路径匹配方式可以查询webpack的文档。<code>pathRewrite</code>可以对路径进行个性化重写，留空表示不重写。</p><p>通过代理的方式让原本处于不同源的资源能够在站点所在源下访问到，从而解决的跨域请求的问题。</p><h3 id="nginx反向代理解决跨域"><a href="#nginx反向代理解决跨域" class="headerlink" title="nginx反向代理解决跨域"></a>nginx反向代理解决跨域</h3><p>上述方法只能在开发环境下解决跨域问题。当开发的网页中需要用到第三方不允许跨域的<code>api</code>时，在生产环境中也会面临跨域问题。此时可以利用nginx的反向代理解决，其原理与在前端调试服务器中配置请求代理一致。</p><p>后端http服务器框架都可以配置静态资源，从而使得前端开发的页面和后端开发<code>api</code>处于同一个源。而第三方的<code>api</code>无法让其处于同一个源，所以必须使用代理。可以后端的http服务器中编写代理功能，也可以使用<code>nginx</code>这样的工具来完成这一功能。</p><p><code>nginx</code>是很常用的http服务器架设工具，易于配置、功能强大。对需要代理的请求路径进行匹配即可完成代理。</p><pre><code class="hljs bash">location ^~/api/ &#123;proxy_pass http://www.example.com;            proxy_set_header X-Real-IP <span class="hljs-variable">$remote_addr</span>;            proxy_set_header Host <span class="hljs-variable">$host</span>;proxy_set_header X-Forwarded-For <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;        &#125;</code></pre><p><code>^~/api/</code>是指匹配以<code>/api/</code>开头的请求路径，更多的匹配规则自行百度。</p><p><code>proxy_pass</code> 是设置目标地址。</p><p><code>proxy_set_header</code> 的设置是对http请求的header内容进行copy。</p><blockquote><p>注意：使用nginx进行反向代理时以为着前端静态资源是用nginx挂载的，与自己写的后端<code>api</code>不是在同一端口上，所以自己写<code>api</code>接口也需要配置反向代理</p></blockquote><h3 id="后端与跨域"><a href="#后端与跨域" class="headerlink" title="后端与跨域"></a>后端与跨域</h3><p>对于自己编写的<code>api</code>，如果不希望前端在使用的时候出现跨域问题可以在http服务器框架中配置关闭这一限制。不同的框架，如<code>python</code>的<code>flask</code>、<code>Java</code>的<code>spring-boot</code>都可以轻松配置，不一一赘述。</p>]]></content>
     
     
+    <categories>
+      
+      <category>-web开发 -前端 -常见问题</category>
+      
+    </categories>
+    
     
     <tags>
       
       <tag>前端</tag>
+      
+      <tag>跨域</tag>
       
     </tags>
     
