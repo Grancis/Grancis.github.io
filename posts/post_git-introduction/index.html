@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Grancis">
   <meta name="keywords" content="">
-  <title>web开发-基础知识1 - Bolg of Grancis</title>
+  <title>协作开发-git简介 - Bolg of Grancis</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-10 16:22" pubdate>
-        2020年10月10日 下午
+      <time datetime="2020-10-11 16:28" pubdate>
+        2020年10月11日 下午
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.2k 字
+      949 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      24
+      10
        分钟
     </span>
   
@@ -217,74 +217,47 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">web开发-基础知识1</h1>
+            <h1 style="display: none">协作开发-git简介</h1>
             
             <div class="markdown-body" id="post-body">
-              <h2 id="web开发基础知识"><a href="#web开发基础知识" class="headerlink" title="web开发基础知识"></a>web开发基础知识</h2><h3 id="全栈开发简介"><a href="#全栈开发简介" class="headerlink" title="全栈开发简介"></a>全栈开发简介</h3><p><img src="/img/post/web-dev_primary1-1.png" srcset="/img/loading.gif"></p>
-<p>web开发可以分为前端和后端两大部分：前端指浏览器用户交互页面，后端包括远程提供数据接口、服务接口的服务器程序以及数据库。</p>
-<p>后端程序一般负责数据处理、业务流处理，前端一般负责将数据渲染到页面上，并响应用户操作。</p>
-<p>整体的流程可以根据上图概括为如下：</p>
-<ul>
-<li>前端代码通过浏览器引擎渲染成可交互的页面</li>
-<li>用户通过浏览器在页面上进行操作，前端代码根据用户的操作等（浏览器事件）更新页面或向后端发起请求，请求数据或发起服务。</li>
-<li>后端服务器收到前端的请求后，触发相应的功能模块，完成相应的业务（计算、数据库增删改查等），最后向前端返回请求的结果（可能是执行的结果或数据查询的结果等）。</li>
-</ul>
-<blockquote>
-<p>前端向后端发起请求、后端待命接收请求并在请求完成前返回请求结果给发起方，这都是建立在http协议上的。</p>
-</blockquote>
-<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写, 是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p>
-<p>就像人们给远方的人交流一样，我们需要约定一个方式来向远方传递信息以及接受来自远方的信息，信件（邮寄）就是其中一种方式。计算机程序在交流时也需要提前约定好一种方式，http就是其中的一种方式。http基于TCP/IP协议，说应它在底层上依赖ip地址、端口等信息来定位，也需要向TCP一样三次握手确认对方身份，但在使用http协议时并不需要关心这些，因为它给我们提供了更方便的通信方式。</p>
-<p>基于http通信的程序有两个角色，一个时客户端client，一个时服务器server。client总是作为通信的发起方，即发起一个request。server则常驻与一个已知的、固定的ip:port(地址)，它监听着某个端口的，等待client向那个端口发起请求。</p>
-<p>client对远端server的地址是已知的，server只有接收到client的请求时才知道client的地址。client的一次请求，到server给client这次请求的响应就是一次http通信，通信结束即断开连接，并且不会保存通信的状态。</p>
-<h4 id="url"><a href="#url" class="headerlink" title="url"></a>url</h4><p>url即我们常说的网址，用来表示Internet地址的一种方式，这种方式人看上去比较易区分记忆，实际上它会被dns服务器解析成TCP/IP协议用的ip:port的形式。</p>
-<p>在http中，默认使用的端口是<code>80</code>,即在浏览器中访问 <code>http://www.example.com</code> 访问的是<code>www.example.com</code>对应的ip下的80端口。如果是 <code>https</code> 则默认是443端口。</p>
-<p>域名（网址）是需要申请注册的，它和<code>ip</code>地址一样是一种互联网资源。当我们没有注册域名时，直接使用<code>ip:port</code>的形式作为url也是可以的。</p>
-<p>开发调试时时长会用到本地ip，<code>http://localhost:8080</code> or <code>http://127.0.0.1:8080</code> 都表示访问本地的<code>8080</code>端口。</p>
-<h4 id="http-request"><a href="#http-request" class="headerlink" title="http request"></a>http request</h4><p><img src="/img/post/web-dev_primary1-2.png" srcset="/img/loading.gif"></p>
-<p>就像写信需要固定格式一样，因为代码在读信，http发起请求更需要一个固定的格式来表明各种信息。</p>
-<p>如图所示，request包含三部分：</p>
-<ul>
-<li>请求行：method、url 以及协议版本</li>
-<li>请求头部：以 <code>key:value</code> 形式表示的更多信息</li>
-<li>请求数据：data发送给远端服务器的信息</li>
-</ul>
-<p>实际上，在开发过程中只需要按规定将请求的method、url、data等信息传入模块或函数，自能自动封装成一个http request并发起请求。</p>
-<h4 id="http-response"><a href="#http-response" class="headerlink" title="http response"></a>http response</h4><p>和request一样，回信 response 也需要固定的格式。</p>
-<p>主要包含 <code>header</code> 和 <code>body</code> 两部分，<code>header</code>也是<code>key:value</code>形式的各种信息，<code>body</code>则是返回的信息主体。下图是某个请求的<code>header</code></p>
-<p><img src="/img/post/web-dev_primary1-3.png" srcset="/img/loading.gif"></p>
-<p>我们一般关心<code>header</code>中的 <code>status</code>，它是一个代码，表示本次请求的状态。<code>body</code>中内容则是我们要使用的信息。</p>
-<h4 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h4><p>对不同类型的请求，http规定了请求方法，常用的有 <code>GET</code>, <code>POST</code>, <code>DELETE</code>, <code>PUT</code>，<code>HEAD </code>，<code>OPTIONS</code>. </p>
-<ul>
-<li><code>GET</code>: 一般在请求一个页面，或者不带参数的请求时使用。带参数时，参数会在url中显示出来</li>
-<li><code>POST</code>：带参请求，一般使用json格式传递参数</li>
-<li><code>DELETE</code>: 请求服务器删除指定资源</li>
-<li><code>PUT</code>: 请求服务器更新指定资源</li>
-<li><code>HEAD </code>: 与<code>GET</code>类似，但只获取<code>header</code></li>
-<li><code>OPTIONS</code>: 允许客户端查看服务器的状态（预请求），一些模块中会集成这个功能。</li>
-</ul>
-<h4 id="状态码status"><a href="#状态码status" class="headerlink" title="状态码status"></a>状态码<code>status</code></h4><p>http状态码用来反应请求的状态。</p>
-<ul>
-<li>1xx：指示信息–表示请求已接收，继续处理</li>
-<li>2xx：成功–表示请求已被成功接收、理解、接受</li>
-<li>3xx：重定向–要完成请求必须进行更进一步的操作</li>
-<li>4xx：客户端错误–请求有语法错误或请求无法实现</li>
-<li>5xx：服务器端错误–服务器未能实现合法的请求</li>
-</ul>
-<p>常见的状态码和意义：</p>
-<pre><code class="hljs JavaScript"><span class="hljs-number">200</span> OK                        <span class="hljs-comment">//客户端请求成功</span>
-<span class="hljs-number">400</span> Bad Request               <span class="hljs-comment">//客户端请求有语法错误，不能被服务器所理解</span>
-<span class="hljs-number">401</span> Unauthorized              <span class="hljs-comment">//请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用 </span>
-<span class="hljs-number">403</span> Forbidden                 <span class="hljs-comment">//服务器收到请求，但是拒绝提供服务</span>
-<span class="hljs-number">404</span> Not Found                 <span class="hljs-comment">//请求资源不存在，eg：输入了错误的URL</span>
-<span class="hljs-number">500</span> Internal Server <span class="hljs-built_in">Error</span>     <span class="hljs-comment">//服务器发生不可预期的错误</span>
-<span class="hljs-number">503</span> Server Unavailable        <span class="hljs-comment">//服务器当前不能处理客户端的请求，一段时间后可能恢复正常</span></code></pre>
-<h3 id="前端引荐"><a href="#前端引荐" class="headerlink" title="前端引荐"></a>前端引荐</h3><p>在过去，前端能做的工作很少，大概就是用 <code>html</code>写网页的主题内容，再用<code>css</code>优化一下排版，而这两个脚本语言写出来的东西都是静态，没办法动态更新，每一次请求都需要刷新整个页面。所以那时候要局部更新页面需要借助“模板引擎”，在后端语言的帮助下局部更新页面。如果时动画，就只能用现在大家都痛恶的flash。</p>
-<p>一个大佬叫Google，重新为浏览器写了一个<code>JavaScript</code>引擎后改变了这种情况。<code>JavaScript</code>丰富的功能使得前端代码有能力方便的对页面进行动态更新。此后，<code>JavaScript</code>就成为了前端逻辑代码的担当。</p>
-<p>所以，<code>html</code>, <code>css</code>, <code>JavaScript</code> 就成了新的网址前端开发三剑客。</p>
-<p>之后，又有大佬不满 <code>JavaScript</code> 不能模块化，以Google开源的JavaScript引擎为基础打造了<code>node.js</code>，语法还是<code>js</code>的语法，新增了模块管理特性，并推出<code>npm</code>包管理工具，这一举措让前端开发者可能能够方便的封装复用代码，发布到<code>npm</code>后能够让其他开发者也能够方便的引入模块。</p>
-<p>模块化有了统一的标准后，前端开发者就可以共同开发构建更多、更方便的模块。前端网页开发从原来的在一个文件里写脚本，通过url引用第三方模块的方式变成模块化开发的方式。各路大神造出了很多好用的前端框架，如：<code>React</code>、<code>Vue</code>等。</p>
-<h3 id="后端引荐"><a href="#后端引荐" class="headerlink" title="后端引荐"></a>后端引荐</h3><p>web后端开发用很多语言都可以实现，比如老大哥<code>Java</code>,比如目前非常火爆的<code>Python</code>。无论使用哪一种语言开发都已经有成熟的web后端框架可以直接使用，<code>Java</code>用的是<code>spring-boot</code>, <code>Python</code> 这边有集成所有功能保姆级别的<code>Django</code>，也有插件丰富的轻量级的<code>flask</code>。这些框架可以帮助开发者快速构建http容器，往往只需要一行代码就可以启动一个http服务器。开发者只需要按照模块化的思路开发好各个功能模块，再按照框架配置好路由（url路径对应的功能）基本上就可以实现一个web后端服务器。</p>
-<p>后端还有一个重要的功能就是读写数据库，常用的数据库都会有封装好的读写模块，开发者只需要调用模块就能方便的读写数据库，并获得多线程并发连接池等高级功能。这部分一般称作<code>ORM</code>（Object Relational Mapping）模块，即对象关系映射。这类模块可以将数据表结构直接映射到对象上，操作数据表就像操作一个对象一样方便。</p>
+              <h2 id="协作开发"><a href="#协作开发" class="headerlink" title="协作开发"></a>协作开发</h2><h3 id="如何协作"><a href="#如何协作" class="headerlink" title="如何协作"></a>如何协作</h3><p>当很多人一起开发同一个项目时，我们需要获取别人完成的代码，也需要将自己的代码分享给别人，总的来说就是需要同步项目进度。平时我们分享文件都是用QQ、微信传文件，多个文件就打包一下再传文件。如果有文件有修改，修改过后传回给对方就在文件命名后加个<code>2.0</code>。这样的方式在简单的几次文件共享中也许还有效，而项目开发往往是很多个人长期的开发，几乎每天都需要进行项目同步，难道每个人每天都打包一次所有文件传到群里来同步吗？这并可行。所以需要版本控制工具来帮我们来解决项目同步的问题。</p>
+<p>版本控制目前有两大阵营，分别是<code>svn</code>和<code>git</code>。</p>
+<p><code>svn</code>是集中式的版本控制，由一个文件服务器统一管理、控制所有文件的版本，用户需要先从文件服务器中拷贝当前最新版本的文件到本地，编辑后再推送到文件服务器，文件服务器每一次更新都会产生一个新的版本号，历史的文件记录也可以通过版本号找到。用户在推送更新文件服务器前需要先<code>update</code>本地文件至与服务器一致。文件服务器可以根据版本号对文件修改进行回退。</p>
+<p><code>git</code>是分布式版本控制，与<code>svn</code>不同的是，<code>git</code>允许每一个用户独立的进行版本控制。这意味着每一个用户都可以对自己本地的文件进行回退修改等操作。当然，在进行多人协同开发同一个项目时，仍然需要一个中心仓库，每个用户在向中心仓库推送文件前需要更新不低于本地文件至中心仓库的版本。</p>
+<p><code>svn</code>和<code>git</code>都是在文件更新时更新版本号，根据版本号自动的完成进度的同步。由于<code>git</code>分布式的优秀特性，使得它在开源软件开发者中更受欢迎，全球最大的开源社区<code>GitHub</code>就是基于<code>git</code>建立的。</p>
+<h3 id="git教程"><a href="#git教程" class="headerlink" title="git教程"></a>git教程</h3><p>具体的<code>git</code>教程这里不再重复，推荐<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的官方网站</a>。</p>
+<p>建议可以跟着教程操练一遍，过后使用时遇到不清楚的地方再查询教程文档。下文提供一些常用的命令供参考。</p>
+<h3 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h3><p>一般的提交过程：</p>
+<pre><code class="hljs bash"><span class="hljs-comment">#在当前目录创建并初始化一个git仓库</span>
+git init 
+
+<span class="hljs-comment">#将工作区修改过的文件添加到暂存区`stage`</span>
+<span class="hljs-comment">#将红色的文件名变成绿色的文件名</span>
+git add [filename]
+
+<span class="hljs-comment">#将暂存区的修改提交到当前分支, &quot;comment&quot;是提交记录</span>
+<span class="hljs-comment">#将绿色文件名的文件提交至当前分支</span>
+git commit -m <span class="hljs-string">&quot;comment&quot;</span></code></pre>
+
+<p>提交至远程仓库</p>
+<pre><code class="hljs bash"><span class="hljs-comment">#将远程仓库origin 的 master 分支 同步到本地仓库的当前分支</span>
+git pull origin master
+
+<span class="hljs-comment">#将当前分支推送推送至远程仓库origin 的 master 分支</span>
+git push origin master</code></pre>
+
+<p>操作失误时常用</p>
+<pre><code class="hljs bash"><span class="hljs-comment">#将本地仓库回退到历史版本（谨慎使用，会使当前工作内容丢失）</span>
+git reset --hard
+
+<span class="hljs-comment">#将暂存区清空，即取消之前的所有 add 操作</span>
+<span class="hljs-comment"># 绿字变回红字, 不会对当前工作内容造成更改</span>
+git reset HEAD
+
+<span class="hljs-comment">#撤销工作区的更新</span>
+<span class="hljs-comment">#红字变无，会对当前工作内容造成更改</span>
+<span class="hljs-comment">#即将某个文件的内容恢复至上一次commit后的状态</span>
+git checkout --filename</code></pre>
 
             </div>
             <hr>
@@ -294,7 +267,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/web%E5%BC%80%E5%8F%91-%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/">-web开发 -基础教程</a>
+                      <a class="hover-with-bg" href="/categories/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80-%E5%8D%8F%E4%BD%9C%E5%BC%80%E5%8F%91-git/">-开发基础 -协作开发 -git</a>
                     
                   </div>
                 
@@ -304,9 +277,11 @@
                     
                       <a class="hover-with-bg" href="/tags/%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/">基础教程</a>
                     
-                      <a class="hover-with-bg" href="/tags/http/">http</a>
+                      <a class="hover-with-bg" href="/tags/git/">git</a>
                     
-                      <a class="hover-with-bg" href="/tags/web/">web</a>
+                      <a class="hover-with-bg" href="/tags/%E5%8D%8F%E4%BD%9C%E5%BC%80%E5%8F%91/">协作开发</a>
+                    
+                      <a class="hover-with-bg" href="/tags/GitHub/">GitHub</a>
                     
                   </div>
                 
@@ -319,18 +294,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/post_git-introduction/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">协作开发-git简介</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/post_read_ylylbs/">
-                        <span class="hidden-mobile">读《月亮与六便士》</span>
+                      <a href="/posts/post_web-dev_primary1/">
+                        <span class="hidden-mobile">web开发-基础知识1</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -499,7 +468,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "web开发-基础知识1&nbsp;",
+        "协作开发-git简介&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

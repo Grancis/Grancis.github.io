@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>协作开发-git简介</title>
+    <link href="/posts/post_git-introduction/"/>
+    <url>/posts/post_git-introduction/</url>
+    
+    <content type="html"><![CDATA[<h2 id="协作开发"><a href="#协作开发" class="headerlink" title="协作开发"></a>协作开发</h2><h3 id="如何协作"><a href="#如何协作" class="headerlink" title="如何协作"></a>如何协作</h3><p>当很多人一起开发同一个项目时，我们需要获取别人完成的代码，也需要将自己的代码分享给别人，总的来说就是需要同步项目进度。平时我们分享文件都是用QQ、微信传文件，多个文件就打包一下再传文件。如果有文件有修改，修改过后传回给对方就在文件命名后加个<code>2.0</code>。这样的方式在简单的几次文件共享中也许还有效，而项目开发往往是很多个人长期的开发，几乎每天都需要进行项目同步，难道每个人每天都打包一次所有文件传到群里来同步吗？这并可行。所以需要版本控制工具来帮我们来解决项目同步的问题。</p><p>版本控制目前有两大阵营，分别是<code>svn</code>和<code>git</code>。</p><p><code>svn</code>是集中式的版本控制，由一个文件服务器统一管理、控制所有文件的版本，用户需要先从文件服务器中拷贝当前最新版本的文件到本地，编辑后再推送到文件服务器，文件服务器每一次更新都会产生一个新的版本号，历史的文件记录也可以通过版本号找到。用户在推送更新文件服务器前需要先<code>update</code>本地文件至与服务器一致。文件服务器可以根据版本号对文件修改进行回退。</p><p><code>git</code>是分布式版本控制，与<code>svn</code>不同的是，<code>git</code>允许每一个用户独立的进行版本控制。这意味着每一个用户都可以对自己本地的文件进行回退修改等操作。当然，在进行多人协同开发同一个项目时，仍然需要一个中心仓库，每个用户在向中心仓库推送文件前需要更新不低于本地文件至中心仓库的版本。</p><p><code>svn</code>和<code>git</code>都是在文件更新时更新版本号，根据版本号自动的完成进度的同步。由于<code>git</code>分布式的优秀特性，使得它在开源软件开发者中更受欢迎，全球最大的开源社区<code>GitHub</code>就是基于<code>git</code>建立的。</p><h3 id="git教程"><a href="#git教程" class="headerlink" title="git教程"></a>git教程</h3><p>具体的<code>git</code>教程这里不再重复，推荐<a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的官方网站</a>。</p><p>建议可以跟着教程操练一遍，过后使用时遇到不清楚的地方再查询教程文档。下文提供一些常用的命令供参考。</p><h3 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h3><p>一般的提交过程：</p><pre><code class="hljs bash"><span class="hljs-comment">#在当前目录创建并初始化一个git仓库</span>git init <span class="hljs-comment">#将工作区修改过的文件添加到暂存区`stage`</span><span class="hljs-comment">#将红色的文件名变成绿色的文件名</span>git add [filename]<span class="hljs-comment">#将暂存区的修改提交到当前分支, &quot;comment&quot;是提交记录</span><span class="hljs-comment">#将绿色文件名的文件提交至当前分支</span>git commit -m <span class="hljs-string">&quot;comment&quot;</span></code></pre><p>提交至远程仓库</p><pre><code class="hljs bash"><span class="hljs-comment">#将远程仓库origin 的 master 分支 同步到本地仓库的当前分支</span>git pull origin master<span class="hljs-comment">#将当前分支推送推送至远程仓库origin 的 master 分支</span>git push origin master</code></pre><p>操作失误时常用</p><pre><code class="hljs bash"><span class="hljs-comment">#将本地仓库回退到历史版本（谨慎使用，会使当前工作内容丢失）</span>git reset --hard<span class="hljs-comment">#将暂存区清空，即取消之前的所有 add 操作</span><span class="hljs-comment"># 绿字变回红字, 不会对当前工作内容造成更改</span>git reset HEAD<span class="hljs-comment">#撤销工作区的更新</span><span class="hljs-comment">#红字变无，会对当前工作内容造成更改</span><span class="hljs-comment">#即将某个文件的内容恢复至上一次commit后的状态</span>git checkout --filename</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>-开发基础 -协作开发 -git</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>基础教程</tag>
+      
+      <tag>git</tag>
+      
+      <tag>协作开发</tag>
+      
+      <tag>GitHub</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>web开发-基础知识1</title>
     <link href="/posts/post_web-dev_primary1/"/>
     <url>/posts/post_web-dev_primary1/</url>
