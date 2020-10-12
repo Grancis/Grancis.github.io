@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.2k 字
+      2.4k 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      24
+      25
        分钟
     </span>
   
@@ -278,6 +278,9 @@
 <span class="hljs-number">404</span> Not Found                 <span class="hljs-comment">//请求资源不存在，eg：输入了错误的URL</span>
 <span class="hljs-number">500</span> Internal Server <span class="hljs-built_in">Error</span>     <span class="hljs-comment">//服务器发生不可预期的错误</span>
 <span class="hljs-number">503</span> Server Unavailable        <span class="hljs-comment">//服务器当前不能处理客户端的请求，一段时间后可能恢复正常</span></code></pre>
+
+<h3 id="websocket"><a href="#websocket" class="headerlink" title="websocket"></a>websocket</h3><p>上文提到的http协议是一种单项请求，即只能由client主动向server发起请求，server不能主动向client传递信息，只能在被动的响应时回复信息。在某些场景，比如需要获取实时信息时，如果只能单项请求，client需要频繁的向服务器请求信息，这时候如果client和server可以保持通信状态，让server可以主动给client传递信息就方便许多， <code>websocket</code> 就是用来实现这一功能的。</p>
+<p>具体用法可以百度谷歌。</p>
 <h3 id="前端引荐"><a href="#前端引荐" class="headerlink" title="前端引荐"></a>前端引荐</h3><p>在过去，前端能做的工作很少，大概就是用 <code>html</code>写网页的主题内容，再用<code>css</code>优化一下排版，而这两个脚本语言写出来的东西都是静态，没办法动态更新，每一次请求都需要刷新整个页面。所以那时候要局部更新页面需要借助“模板引擎”，在后端语言的帮助下局部更新页面。如果时动画，就只能用现在大家都痛恶的flash。</p>
 <p>一个大佬叫Google，重新为浏览器写了一个<code>JavaScript</code>引擎后改变了这种情况。<code>JavaScript</code>丰富的功能使得前端代码有能力方便的对页面进行动态更新。此后，<code>JavaScript</code>就成为了前端逻辑代码的担当。</p>
 <p>所以，<code>html</code>, <code>css</code>, <code>JavaScript</code> 就成了新的网址前端开发三剑客。</p>
