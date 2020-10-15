@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Grancis">
   <meta name="keywords" content="">
-  <title>web开发-前端基础1-html, css, js - Bolg of Grancis</title>
+  <title>web开发-前端基础2-node.js - Bolg of Grancis</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-12 11:22" pubdate>
-        2020年10月12日 上午
+      <time datetime="2020-10-12 20:45" pubdate>
+        2020年10月12日 晚上
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.4k 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      15
        分钟
     </span>
   
@@ -217,48 +217,44 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">web开发-前端基础1-html, css, js</h1>
+            <h1 style="display: none">web开发-前端基础2-node.js</h1>
             
             <div class="markdown-body" id="post-body">
-              <h2 id="前端基础1-html-css-js"><a href="#前端基础1-html-css-js" class="headerlink" title="前端基础1-html,css,js"></a>前端基础1-html,css,js</h2><p>web前端开发，也叫网页开发的基础就是 <code>html</code>, <code>css</code> 和 <code>JavaScript</code>，这三个语言编写的脚本分别负责网页的骨架（内容）、样式和动态逻辑。这三个语言各有职责但也紧密相连，样式的编写时基于内容的，动态逻辑的编写也是基于内容与样式的，入门时应该以具体实例一起操练。</p>
-<h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>网页标题<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>我的第一个标题<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>我的第一个段落。<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+              <h2 id="node-js-生态"><a href="#node-js-生态" class="headerlink" title="node.js 生态"></a>node.js 生态</h2><p>在<code>node.js</code>生态中开发网页更像是开发一个完整的应用，它允许你将js脚本模块化，不再以<code>url</code>的形式引入脚本，而是用导入模块的方式引入代码。基于插件工具，如<code>webpack</code>，能够静态资源（<code>html</code>、<code>css</code>、图片等）全都按照模块的方式导入组织，使得前端开发更规范化，前端的第三方模块也因此丰富起来。</p>
+<p><code>node.js</code>的下载安装可以百度找到。</p>
+<h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>要使用丰富的第三方模块，首先要学会使用<code>node.js</code>的包管理工具<code>npm</code>，它就像是<code>node.js</code>的软件商店，开发者可以按照它的规范将模块上传注册到<code>npm</code>的仓库当中，其他开发者只需要知道模块的名称和版本号就能够通过<code>npm</code>下载对应的模块到开发环境中。</p>
+<h4 id="cnpm"><a href="#cnpm" class="headerlink" title="cnpm"></a>cnpm</h4><p>使用<code>npm</code>安装模块时默认是从国外的远程仓库获取资源，国内的访问速度在没有科学上网时很慢，这时候就需要使用国内的镜像。</p>
+<p>使用阿里的淘宝镜像, 就是用<code>npm</code>全局安装一个叫<code>cnpm</code>的模块，这个模块的安装源可以指定，这里指定为阿里的源。</p>
+<pre><code class="hljs bash">npm install -g cnpm --registry=https://registry.npm.taobao.org</code></pre>
+<p>之后再安装模块就使用<code>cnpm</code>, 其功能与<code>npm</code>完全一致，只是源不同。下文为了方便，仍使用<code>npm</code>进行说明。</p>
+<h4 id="install-amp-uninstall"><a href="#install-amp-uninstall" class="headerlink" title="install &amp; uninstall"></a>install &amp; uninstall</h4><p><code>npm</code>有三种安装选项，分别是：全局安装、运行时依赖、开发时依赖。</p>
+<p>全局安装是将模块下载到<code>node.js</code>的安装目录下的<code>node_modules</code>文件夹，一次安装后，本地的所有项目都可以导入它。</p>
+<pre><code class="hljs bash"><span class="hljs-comment">#全局安装</span>
+npm install [package-name] -g</code></pre>
 
-<p>以上就是<code>html</code>脚本的一个简单例子，可以看出它是由一系列闭合的标签组成的，每一种标签都有特定的功能，且有一定的父级关系。严格来说<code>html</code>称不上一种变成语言，它只是一个用于标记内容结构的脚本。写<code>html</code>本质上与写word文档是一致的，只不过word文档直接将排版的结果显示出来，排版的方式只需要我们用鼠标选择对应的格式；而<code>html</code>是用一个一个可嵌套的标签来规定排版的格式。如<code>&lt;p&gt;&lt;/p&gt;</code>表示的就是一个段落，在开始标签<code>&lt;p&gt;</code>与结束标签<code>&lt;/p&gt;</code>间就可以填入段落的内容。</p>
-<p>刚开始使用时可能不记得有哪些标签，这不需要死记硬背，而应该在使用的过程中去掌握。这里推荐<a target="_blank" rel="noopener" href="https://www.runoob.com/html/html-tutorial.html">HTML菜鸟教程</a>。</p>
-<p>可以先简单的过一遍教程文档，跟着教程在网页上写一些东西，这个过程只是让你了解<code>html</code>一共有哪些东西，大致该如何使用。日后在实战过程中遇到问题再查找对应的教程。</p>
-<h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><pre><code class="hljs css"><span class="hljs-selector-tag">body</span>&#123;
-    <span class="hljs-attribute">background-color</span>:<span class="hljs-number">#d0e4fe</span>;
-&#125;
+<p>运行时依赖包在开发环境和生产环境中都需要，它们是Web App在运行时需要用的模块，在打包生产环境资源时会被包括。</p>
+<pre><code class="hljs bash"><span class="hljs-comment">#运行时依赖</span>
+npm install [package-name] --save</code></pre>
 
-<span class="hljs-selector-tag">h1</span>&#123;
-    <span class="hljs-attribute">color</span>:orange;
-    <span class="hljs-attribute">text-align</span>:center;
-&#125;
+<p>开发时依赖仅在开发环境中需要，是一些辅助开发的插件，比如格式化工具<code>eslint</code>等。它们仅在开发环境中需要，并辅助生成生产环境资源，但最终生成的资源中并不包括它们。</p>
+<pre><code class="hljs bash"><span class="hljs-comment">#开发时依赖</span>
+npm install [package-name] --save-dev</code></pre>
 
-<span class="hljs-selector-tag">p</span>&#123;
-    <span class="hljs-attribute">font-family</span>:<span class="hljs-string">&quot;Times New Roman&quot;</span>;
-    <span class="hljs-attribute">font-size</span>:<span class="hljs-number">20px</span>;
-&#125;</code></pre>
-
-<p><code>css</code>和<code>html</code>类似，也是一种标记脚本，它时配合<code>html</code>使用的。<code>html</code>完成的时网页内容（我习惯称为骨架）的编写，利用<code>css</code>可以实现更丰富的排版布局样式，包括颜色、边框、边距、宽度、高度等都是由<code>css</code>控制。不添加<code>css</code>的<code>html</code>只能展示很简单的排版，因此两个脚本一般都是一起使用的。</p>
-<p><code>css</code>的教程也推荐<a target="_blank" rel="noopener" href="https://www.runoob.com/css/css-tutorial.html">菜鸟教程</a>。学习方法与<code>html</code>一致，切勿空学不练。</p>
-<h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>与<code>html</code>、<code>css</code>不同，<code>JavaScript</code>是一门实实在在的编程语言，它与<code>python</code>类似，是一种弱类型动态语言。</p>
-<p><code>JavaScript</code>创立之初是就是为网页服务的，所以它运行的环境就是浏览器。如今基于<code>JavaScript</code>拓展的<code>node.js</code>是将Google为浏览器编写的<code>JavaScript</code>重新封装，使得<code>js</code>可以运行与浏览器之外，也增加了更多的功能。<code>js</code>应用最多的仍然是在浏览器环境中。</p>
-<p>JavaScript的教程推荐<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1022910821149312">廖雪峰的官方网站</a>。 在写原生<code>JavaScript</code>的过程中会接触大量的浏览器对象、浏览器事件，这对了深入理解网页开发很有帮助。虽然后期在使用框架开发时不会直接接触到这么多原生的浏览器、事件，但强烈建议学习这部分的内容。</p>
-<h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><p>web前端开发对新手很友好的一点就是所见即所得，即你可以在浏览器上实时预览所编写代码的效果。而调试前端代码最好的工具也是浏览器，这里推荐使用Google Chrome. </p>
-<p><img src="/img/post/web-frontend_primary1-1.png" srcset="/img/loading.gif"></p>
-<p>在浏览器页面按<code>F12</code>就可以调出当前网页的开发者调试工具窗口，如上图。在这里可以对<code>html</code>元素、<code>css</code>样式进行实时查看更改（在调试窗口更改不会更改源文件代码）。<code>Console</code>控制台相当于windows系统的小黑框<code>cmd</code>，可以在<code>Console</code>直接运行<code>js</code>代码，<code>js</code>的报错也会在这输出。</p>
-<p>Chrome的开发者调试工具可以对<code>js</code>代码打断点，实行单步运行等，也可以查看http网络请求详情。更多的功能在使用过程中搜索发现。</p>
+<p>运行时依赖和开发时依赖都安装在当前目录下的<code>node_modules</code>文件夹。</p>
+<p>卸载命令用法与安装命令一致，将<code>install</code>改为<code>uninstall</code>即可。</p>
+<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><pre><code class="hljs bash"><span class="hljs-comment">#初始化一个nodejs项目</span>
+npm init</code></pre>
+<p>上述命令会在当前目录下初始化一个node.js项目，即创建一个<code>package.json</code>文件，用于对项目进行记录，如下图所示：</p>
+<p><img src="/img/post/web-frontend_primary2-1.png" srcset="/img/loading.gif"></p>
+<p>这是一个<code>json</code>格式的文件，用<code>key:value</code>的方式描述项目的信息。开头一般是项目名、版本等基本信息。需要关注的是<code>&quot;script&quot;</code>、<code>&quot;dependencies&quot;</code> 和 <code>&quot;devDependencies&quot;</code>这三个<code>key</code>的内容。</p>
+<p><code>script</code>中定义了一些脚本，可以将常用的命令、参数重新定义成要给脚本命令，更方便快捷的调用脚本。比如，用 <code>npm run dev</code> 就可以调用 <code>webpack-dev-server --inline --progress --config build/webpack.dev.conf.js</code>，这是启动开发调试服务器用的命令。使用<code>start</code>时可以直接<code>npm start</code>, 不需要加<code>run</code>.</p>
+<p><code>npm</code>的安装区分全局安装、运行时依赖、开发时依赖，运行依赖和开发时依赖信息会记录在<code>package.json</code>中，分别对应<code>&quot;dependencies&quot;</code>和 <code>&quot;devDependencies&quot;</code>。其中记录了依赖名称和版本信息。</p>
+<p>多人开发一个项目时，只需要同步<code>package.json</code>里的信息就可以保证所有人使用的依赖版本一致，而不是将体积庞大的<code>node_modules</code>放到远程仓库中。在项目根目录下使用<code>npm install</code>就会根据<code>package.json</code>里的依赖信息自动安装第三方模块。</p>
+<h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><p><img src="/img/post/web-frontend_primary2-2.png" srcset="/img/loading.gif"></p>
+<p><code>webpack</code>是一个前端资源整合工具，为静态资源提供优雅的加载和打包方式。当我们使用的模块很多时，部署到生产环境中将是一件非常头疼的事情，很容易发生路径错误等问题。<code>webpack</code>会将前端项目代码统一打包成一个或几个<code>.js</code>文件，图片、字体等静态资源文件也会统一打包，在生产环境中只需要在<code>index.html</code>中引用那些<code>js</code>文件就可以访问到整个Web App，项目中复杂的引用关系全都由<code>webpack</code>自动处理，并写在<code>js</code>文件中。</p>
+<p>配合一些插件，<code>webpack</code>还能够提供热更新的功能，开发者改动代码后不需要刷新页面就能够自动更新内容。</p>
+<p>随着越来越多插件模块基于<code>webpack</code>开发，<code>webpack</code>的配置也变得很多。一般来说使用什么插件再对应查找该插件的配置方式即可。常用的前端框架，如<code>vue</code>、<code>react</code>推出了自己的脚手架工具，其实是基于<code>webpack</code>并将常用的插件配置好的工具，使用这些脚手架时，一般不需要手动配置就可以获得一个满足大部分情况的开发环境。</p>
+<p><code>webpack</code>往往被封装成更简单易用的脚手架工具，不需要专门学习它也能够使用到它的功能。在遇到问题的时候，利用搜索引擎对应搜索学习即可。</p>
 
             </div>
             <hr>
@@ -280,11 +276,7 @@
                     
                       <a class="hover-with-bg" href="/tags/%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/">基础教程</a>
                     
-                      <a class="hover-with-bg" href="/tags/html/">html</a>
-                    
-                      <a class="hover-with-bg" href="/tags/css/">css</a>
-                    
-                      <a class="hover-with-bg" href="/tags/js/">js</a>
+                      <a class="hover-with-bg" href="/tags/node-js/">node.js</a>
                     
                   </div>
                 
@@ -297,18 +289,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/post_web-frontend_primary2/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">web开发-前端基础2-node.js</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/post_git-introduction/">
-                        <span class="hidden-mobile">协作开发-git简介</span>
+                      <a href="/posts/post_web-frontend_primary1/">
+                        <span class="hidden-mobile">web开发-前端基础1-html, css, js</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -477,7 +463,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "web开发-前端基础1-html, css, js&nbsp;",
+        "web开发-前端基础2-node.js&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
