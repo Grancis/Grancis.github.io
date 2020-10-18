@@ -17,10 +17,23 @@
   <meta name="description" content="">
   <meta name="author" content="Grancis">
   <meta name="keywords" content="">
-  <title>分类 - Bolg of Grancis</title>
+  <title>web开发-前端基础4-ElementUI - Bolg of Grancis</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +56,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -147,6 +160,28 @@
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-18 13:51" pubdate>
+        2020年10月18日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+
+  
+
+  
+  
+</div>
+
+            
           </div>
 
           
@@ -157,234 +192,111 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">web开发-前端基础4-ElementUI</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="ElementUI"><a href="#ElementUI" class="headerlink" title="ElementUI"></a>ElementUI</h2><p>ElementUI是一个封装好的UI组件，它为web前端开发者提供一套风格统一、美观的现代化UI组件。在<code>Vue</code>项目中全局引入<code>element-ui</code>后可以像使用原生<code>html</code>标签一样地使用ElementUI的定制标签。</p>
+<p>具体使用方法，参考<a target="_blank" rel="noopener" href="https://element.eleme.io/#/zh-CN">ElementUI的官方文档</a>。下文对<code>Vue</code>版本的ElementUI进行简单介绍。</p>
+<h3 id="安装-amp-全局引入"><a href="#安装-amp-全局引入" class="headerlink" title="安装&amp;全局引入"></a>安装&amp;全局引入</h3><p>UI框架是运行时依赖，用<code>-S</code>参数安装：</p>
+<pre><code class="hljs bash">npm install element-ui -S</code></pre>
 
+<p>将UI框架模块全局引入后，在各个组件中无需再引入就可以直接使用<code>element-ui</code>提供的组件标签等功能。在<code>/src/main.js</code>中我们创建了唯一的<code>Vue</code>实例，全局引入也是在这里进行：</p>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">//main.js</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span>
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./App.vue&#x27;</span>
+<span class="hljs-keyword">import</span> ElementUI <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;element-ui&#x27;</span>; <span class="hljs-comment">// 引入模块</span>
+<span class="hljs-comment">//...</span>
 
+Vue.config.productionTip = <span class="hljs-literal">false</span>
+Vue.use(ElementUI); <span class="hljs-comment">//在Vue实例中注册模块</span>
 
+<span class="hljs-keyword">new</span> Vue(&#123;
+  render: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App),
+&#125;).$mount(<span class="hljs-string">&#x27;#app&#x27;</span>)
+</code></pre>
 
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><a target="_blank" rel="noopener" href="https://element.eleme.io/#/zh-CN">ElementUI的官方文档</a>对每个组件的使用都描述得很清楚，并且配有可编辑的示例代码。不需要专门学习记忆，使用前过一遍知道它有什么组件，使用到某个组件时再对应查找学习使用即可。</p>
 
-
-<div class="category-list">
-  
-  
-  
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckg6bkh4p0000qoqd9sfsa8mo" role="tab" data-toggle="collapse" href="#collapse-ckg6bkh4p0000qoqd9sfsa8mo"
-        aria-expanded="false"
-      >
-        -web开发 -前端基础
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/web%E5%BC%80%E5%8F%91-%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>4</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckg6bkh4p0000qoqd9sfsa8mo" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckg6bkh4p0000qoqd9sfsa8mo">
-    
-    
-    
-      
-      
-        <a href="/posts/post_web-frontend_primary4/" class="list-group-item list-group-item-action">
-          <span class="category-post">web开发-前端基础4-ElementUI</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/post_web-frontend_primary3/" class="list-group-item list-group-item-action">
-          <span class="category-post">web开发-前端基础3-vue.js</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/post_web-frontend_primary2/" class="list-group-item list-group-item-action">
-          <span class="category-post">web开发-前端基础2-node.js</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/post_web-frontend_primary1/" class="list-group-item list-group-item-action">
-          <span class="category-post">web开发-前端基础1-html, css, js</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckg3fje0700037sqdbx194t4z" role="tab" data-toggle="collapse" href="#collapse-ckg3fje0700037sqdbx194t4z"
-        aria-expanded="false"
-      >
-        -web开发 -前端 -常见问题
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/web%E5%BC%80%E5%8F%91-%E5%89%8D%E7%AB%AF-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckg3fje0700037sqdbx194t4z" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckg3fje0700037sqdbx194t4z">
-    
-    
-    
-      
-      
-        <a href="/posts/post_cors_solving/" class="list-group-item list-group-item-action">
-          <span class="category-post">关于前端跨域</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckg3fje0800077sqd28e6b2gf" role="tab" data-toggle="collapse" href="#collapse-ckg3fje0800077sqd28e6b2gf"
-        aria-expanded="false"
-      >
-        -读书分享
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E8%AF%BB%E4%B9%A6%E5%88%86%E4%BA%AB/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckg3fje0800077sqd28e6b2gf" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckg3fje0800077sqd28e6b2gf">
-    
-    
-    
-      
-      
-        <a href="/posts/post_read_ylylbs/" class="list-group-item list-group-item-action">
-          <span class="category-post">读《月亮与六便士》</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckg3fs6540004u4qdclrxauyn" role="tab" data-toggle="collapse" href="#collapse-ckg3fs6540004u4qdclrxauyn"
-        aria-expanded="false"
-      >
-        -web开发 -基础教程
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/web%E5%BC%80%E5%8F%91-%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckg3fs6540004u4qdclrxauyn" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckg3fs6540004u4qdclrxauyn">
-    
-    
-    
-      
-      
-        <a href="/posts/post_web-dev_primary1/" class="list-group-item list-group-item-action">
-          <span class="category-post">web开发-基础知识1</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckg4r61xg00048oqdh2mzh25t" role="tab" data-toggle="collapse" href="#collapse-ckg4r61xg00048oqdh2mzh25t"
-        aria-expanded="false"
-      >
-        -开发基础 -协作开发 -git
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80-%E5%8D%8F%E4%BD%9C%E5%BC%80%E5%8F%91-git/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckg4r61xg00048oqdh2mzh25t" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckg4r61xg00048oqdh2mzh25t">
-    
-    
-    
-      
-      
-        <a href="/posts/post_git-introduction/" class="list-group-item list-group-item-action">
-          <span class="category-post">协作开发-git简介</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-</div>
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/web%E5%BC%80%E5%8F%91-%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/">-web开发 -前端基础</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/">基础教程</a>
+                    
+                      <a class="hover-with-bg" href="/tags/elementUI/">elementUI</a>
+                    
+                      <a class="hover-with-bg" href="/tags/UI%E6%A1%86%E6%9E%B6/">UI框架</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/post_web-frontend_primary3/">
+                        <span class="hidden-mobile">web开发-前端基础3-vue.js</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -492,6 +404,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -499,7 +436,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类&nbsp;",
+        "web开发-前端基础4-ElementUI&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -514,6 +451,21 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -527,6 +479,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
