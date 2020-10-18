@@ -285,6 +285,14 @@ p &#123;
 <p><code>methods</code>是一个对象，里面可以定义这个组件要用到的<code>function</code></p>
 <p><code>mounted</code>是一个生命周期钩子函数。一个组件从创建到被销毁的过程被定义了许多状态，到达每一个状态时都有相应的生命周期钩子函数，在函数里定义你要触发的事件。</p>
 <h4 id="style"><a href="#style" class="headerlink" title="style"></a>style</h4><p><code>&lt;style&gt;</code>标签里写的css等样式，加上<code>scoped</code>表示标签里的样式定义域时该组件内。</p>
+<h3 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h3><p>在这里先介绍一个概念：SPA(Single Page App)，即单页应用。在传统的网页中，点击一个链接或一个导航往往需要跳转到另一个页面，用户体验很不好。在SPA中，点击一个链接允许只刷新部分页面，始终在一个页面上更新内容，用起来更像是一个应用，拥有更好的用户体验。</p>
+<p><code>vue-router</code>就是<code>Vue</code>官方提供的用来实现SPA的路由工具，它可以用<code>&lt;router-view /&gt;</code>这样的标签定义页面刷新的区域，每一个路由对应的是一个<code>.vue</code>组件，这样就可以在改变<code>url</code>路径时切换某个区域的组件，达到切换页面而又不必跳转页面的效果。</p>
+<p>例如<code>Vue.js</code>官方文档采用的侧边导航＋顶部标题的经典布局：<br><img src="/img/post/web-frontend_primary3-9.png" srcset="/img/loading.gif"><br>点击左边的侧边栏导航，主体部分应该更新到对应的内容，而侧边栏和顶部始终固定不变。这就可以用上面说的思路来做：主题部分用<code>&lt;router-view /&gt;</code>做嵌套路由，点击侧边栏导航至对应的子路由从而更换主体部分的组件。</p>
+<p><code>vue-router</code>的更多功能和具体使用参考<a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/#html">vue-router</a>的官方文档。</p>
+<h3 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h3><p>在开发<code>.vue</code>组件时，每个组件都拥有自己的变量，并且只能在组件内使用，组件间如果需要传递变量就要使用<code>props</code>属性（父组件向子组件传值），或者子组件<code>$emit</code>一个事件并通过事件向父组件传参。当开发的项目比较简单时，使用这种方式传值还可以接受，但如果项目很复杂，有很多组件需要共享变量时，组件间传值将是一个噩梦。</p>
+<p><code>Vuex</code>是<code>Vue</code>官方提供的一个<code>store</code>插件，用于维护公共变量。它规定了一定的机制来定义、取用、变更公用变量，保证了公共变量的变更<code>Vue</code>框架可知、有记录，使用公共变量的同时也能高效的自动渲染页面。</p>
+<p><code>Vuex</code>一共有四个对象，分别是：<code>state</code>、<code>getter</code>、<code>mutation</code>、和<code>action</code>。<code>state</code>用于保存定义的公共变量，<code>getter</code>一般用于定义取用<code>state</code>的函数，类似与<code>.vue</code>组件的<code>computed</code>属性。<code>mutation</code>定义<code>state</code>的变更，<code>state</code>的所有变更都要通过调用<code>mutation</code>进行，<code>mutation</code>一般不包含业务逻辑，只负责变更数据，且不允许包含异步代码。<code>action</code>中一般会包含一些业务逻辑，可以包含异步逻辑，一般在业务逻辑完成后调用相应的<code>mutation</code>来更新变量。</p>
+<p><code>vue</code>的更多功能和具体使用参考<a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/">vuex</a>的官方文档。</p>
 
             </div>
             <hr>
