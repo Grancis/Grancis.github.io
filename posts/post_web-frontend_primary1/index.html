@@ -221,7 +221,8 @@
 <p>以上就是<code>html</code>脚本的一个简单例子，可以看出它是由一系列闭合的标签组成的，每一种标签都有特定的功能，且有一定的父级关系。严格来说<code>html</code>称不上一种变成语言，它只是一个用于标记内容结构的脚本。写<code>html</code>本质上与写word文档是一致的，只不过word文档直接将排版的结果显示出来，排版的方式只需要我们用鼠标选择对应的格式；而<code>html</code>是用一个一个可嵌套的标签来规定排版的格式。如<code>&lt;p&gt;&lt;/p&gt;</code>表示的就是一个段落，在开始标签<code>&lt;p&gt;</code>与结束标签<code>&lt;/p&gt;</code>间就可以填入段落的内容。</p>
 <p>刚开始使用时可能不记得有哪些标签，这不需要死记硬背，而应该在使用的过程中去掌握。这里推荐<a target="_blank" rel="noopener" href="https://www.runoob.com/html/html-tutorial.html">HTML菜鸟教程</a>。</p>
 <p>可以先简单的过一遍教程文档，跟着教程在网页上写一些东西，这个过程只是让你了解<code>html</code>一共有哪些东西，大致该如何使用。日后在实战过程中遇到问题再查找对应的教程。</p>
-<h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><pre><code class="hljs css"><span class="hljs-selector-tag">body</span>&#123;
+<h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><pre><code class="hljs css">&lt;<span class="hljs-selector-tag">style</span>&gt;
+<span class="hljs-selector-tag">body</span>&#123;
     <span class="hljs-attribute">background-color</span>:<span class="hljs-number">#d0e4fe</span>;
 &#125;
 
@@ -233,7 +234,8 @@
 <span class="hljs-selector-tag">p</span>&#123;
     <span class="hljs-attribute">font-family</span>:<span class="hljs-string">&quot;Times New Roman&quot;</span>;
     <span class="hljs-attribute">font-size</span>:<span class="hljs-number">20px</span>;
-&#125;</code></pre>
+&#125;
+&lt;/style&gt;</code></pre>
 
 <p><code>css</code>和<code>html</code>类似，也是一种标记脚本，它时配合<code>html</code>使用的。<code>html</code>完成的时网页内容（我习惯称为骨架）的编写，利用<code>css</code>可以实现更丰富的排版布局样式，包括颜色、边框、边距、宽度、高度等都是由<code>css</code>控制。不添加<code>css</code>的<code>html</code>只能展示很简单的排版，因此两个脚本一般都是一起使用的。</p>
 <p><code>css</code>的教程也推荐<a target="_blank" rel="noopener" href="https://www.runoob.com/css/css-tutorial.html">菜鸟教程</a>。学习方法与<code>html</code>一致，切勿空学不练。</p>

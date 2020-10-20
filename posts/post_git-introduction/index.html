@@ -225,7 +225,10 @@ git add [filename]
 git commit -m <span class="hljs-string">&quot;comment&quot;</span></code></pre>
 
 <p>提交至远程仓库</p>
-<pre><code class="hljs bash"><span class="hljs-comment">#将远程仓库origin 的 master 分支 同步到本地仓库的当前分支</span>
+<pre><code class="hljs bash"><span class="hljs-comment">#添加远程仓库并命名为 origin</span>
+$ git remote add origin [address]
+
+<span class="hljs-comment">#将远程仓库origin 的 master 分支 同步到本地仓库的当前分支</span>
 git pull origin master
 
 <span class="hljs-comment">#将当前分支推送推送至远程仓库origin 的 master 分支</span>
